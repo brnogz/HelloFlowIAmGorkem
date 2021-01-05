@@ -1,5 +1,6 @@
 package com.gk.helloflowiamgorkem
 
+import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.gk.helloflowiamgorkem.base.BaseActivity
@@ -24,5 +25,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     }
 
+
+    override fun onBackPressed() {
+        if (!findNavController(this, R.id.container).popBackStack())
+            super.onBackPressed()
+    }
 
 }

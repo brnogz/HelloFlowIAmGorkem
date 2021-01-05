@@ -24,7 +24,7 @@ class PhotoLibraryViewModel @ViewModelInject constructor(
 
     fun getPhotos()  {
         viewModelScope.launch {
-            repositoryPhotos.getPhotos().collect {
+            repositoryPhotos.getPhotos(this).collect {
                 Log.d("GETPHOTOS:::", "I am collected")
                 _viewState.value = it
             }
